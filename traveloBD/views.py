@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from .models import Dist_info,Tour_places
 
 from .forms import CreateUserForm
 # Create your views here.
@@ -49,4 +50,42 @@ def logout_view(request):
 
 
 def home(request):
-    return render(request,'travel_home.html')
+    dests=Dist_info.objects.all()
+    return render(request,'travel_home.html',{'dests':dests})
+
+
+def about_view(request):
+    return render(request,'siteinfo/about.html',{'about':about_view})
+
+def contact_view(request):
+    return render(request,'siteinfo/contact.html',{'contact':contact_view})
+
+def gallery_view(request):
+    return render(request,'siteinfo/gallery.html',{'gallery':gallery_view})
+
+
+
+def places_info(request,id=None):
+    place=[]
+
+    if id is not None:
+        name=Dist_info.objects.get(id=id)
+
+        place=Tour_places.objects.filter(dist_info=name)
+
+    context={
+
+        'district_name':name,
+        'place': place
+    }
+    return render(request,'places/places.html',context)
+
+
+
+def spots_view(request,id):
+    place = Tour_places.objects.get(id=id)
+    context={
+        'place':place
+    }
+    return render(request,'places/spots.html',context)
+

@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+{%block content%}
+        <section id = "featured" class = "py-4">
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">See all places to visit</span>
+                    <h2 class = "lg-title">{{district_name}}</h2>
+                </div>
+
+                <div class = "featured-row">
+                    {%for place in place%}
+                    <a href="/places/spots/{{place.id}}/">
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "{{place.img.url}}" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                               {{place.name}},Bangladesh
+                            </span>
+                            <div>
+                                <p class = "text">{{place.des}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                    {%endfor%}
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+{%endblock content%}

@@ -1,60 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>TripBoss</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- font awesome cdn -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- fonts -->
-        <link rel = "stylesheet" href = "font/fonts.css">
-        <!-- normalize css -->
-        <link rel = "stylesheet" href = "css/normalize.css">
-        <!-- custom css -->
-        <link rel = "stylesheet" href = "css/utility.css">
-        <link rel = "stylesheet" href = "css/style.css">
-        <link rel = "stylesheet" href = "css/responsive.css">
-    </head>
-    <body>
-        <!-- navbar  -->
-        <nav class = "navbar">
-            <div class = "container flex">
-                <a href = "index.html" class = "site-brand">
-                    Trip<span>Boss</span>
-                </a>
+{% extends "base.html" %}
+{%load static%}
 
-                <button type = "button" id = "navbar-show-btn" class = "flex">
-                    <i class = "fas fa-bars"></i>
-                </button>
-                <div id = "navbar-collapse">
-                    <button type = "button" id = "navbar-close-btn" class = "flex">
-                        <i class = "fas fa-times"></i>
-                    </button>
-                    <ul class = "navbar-nav">
-                        <li class = "nav-item">
-                            <a href = "index.html" class = "nav-link">Home</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "gallery.html" class = "nav-link">Gallery</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "blog.html" class = "nav-link">Blog</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "about.html" class = "nav-link">About</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "contact.html" class = "nav-link">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- end of navbar  -->
+
 
         <!-- header -->
+{%block content%}
         <header class = "flex">
             <div class = "container">
                 <div class = "header-title">
@@ -83,83 +33,25 @@
                 </div>
 
                 <div class = "featured-row">
+                    {%for dest in dests%}
+                    <a href="/places/{{dest.id}}/">
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-reo-de-janeiro-brazil.jpg" alt = "featured place">
+                        <img src = "{{dest.img.url}}" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
                                 <i class = "fas fa-map-marker-alt"></i>
-                                Reo De Janeiro, Brazil
+                               {{dest.name}},Bangladesh
                             </span>
                             <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
+                                <p class = "text">{{dest.des}}</p>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    {%endfor%}
 
-                    <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-north-bondi-australia.jpg" alt = "featured place">
-                        <div class = "featured-item-content">
-                            <span>
-                                <i class = "fas fa-map-marker-alt"></i>
-                                North Bondi, Australia
-                            </span>
-                            <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-berlin-germany.jpg" alt = "featured place">
-                        <div class = "featured-item-content">
-                            <span>
-                                <i class = "fas fa-map-marker-alt"></i>
-                                Berlin, Germany
-                            </span>
-                            <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-khwaeng-wat-arun-thailand.jpg" alt = "featured place">
-                        <div class = "featured-item-content">
-                            <span>
-                                <i class = "fas fa-map-marker-alt"></i>
-                                Khwaeng wat arun, thailand
-                            </span>
-                            <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-rome-italy.jpg" alt = "featured place">
-                        <div class = "featured-item-content">
-                            <span>
-                                <i class = "fas fa-map-marker-alt"></i>
-                                Rome, Italy
-                            </span>
-                            <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-fuvahmulah-maldives.jpg" alt = "featured place">
-                        <div class = "featured-item-content">
-                            <span>
-                                <i class = "fas fa-map-marker-alt"></i>
-                                fuvahmulah, maldives
-                            </span>
-                            <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -179,8 +71,8 @@
                             <i class = "fas fa-hotel"></i>
                         </span>
                         <h3>Luxurious Hotel</h3>
-                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
-                        <a href = "#" class = "btn">Read more</a>
+                        <p class = "text">makes it easy to book the best luxury hotels in the world. We have plenty of exquisite, luxurious accommodation choices for you to compare and book! Once you've decided on the best destination for your travels, you'll be able to see what our most popular luxury hotels are in that particular area.</p>
+                        <a href = "https://www.hotels.com/search.do?destination-id=10233012&q-check-in=2022-04-08&q-check-out=2022-04-09&q-rooms=1&q-room-0-adults=2&q-room-0-children=0&sort-order=BEST_SELLER" class = "btn">CLICK</a>
                     </div>
 
                     <div class = "services-item">
@@ -188,8 +80,8 @@
                             <i class = "fas fa-map-marked-alt"></i>
                         </span>
                         <h3>Trave Guide</h3>
-                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
-                        <a href = "#" class = "btn">Read more</a>
+                        <p class = "text">one-stop source for the best travel guides, vacation brochures, maps and planning kits. Whether you want them in your mailbox or your email inbox, these travel guides and travel brochures help you plan the perfect vacation.</p>
+                        <a href = "http://www.discoverybangladesh.com/" class = "btn">CLICK</a>
                     </div>
 
                     <div class = "services-item">
@@ -197,8 +89,8 @@
                             <i class = "fas fa-money-bill"></i>
                         </span>
                         <h3>Suitable Price</h3>
-                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
-                        <a href = "#" class = "btn">Read more</a>
+                        <p class = "text">Find the best price for your trip. See the comparison of different roots and ways so you can choose the suitable price. Compare hotels and visit the best places of your trip . Know the pro's and con's about the trip .  </p>
+                        <a href = "#" class = "btn">CLICK</a>
                     </div>
                 </div>
             </div>
@@ -215,34 +107,35 @@
 
                 <div class = "test-row">
                     <div class = "test-item">
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda blanditiis, asperiores, velit iste eos officiis tempora magni quaerat quo consectetur expedita cum recusandae facere nam voluptate minus iusto eum. Delectus!</p>
+                        <p class = "text">Amazing to find all the different types of Tours in one place!Good description and great customer service with tour provider. Super fast and friendly.</p>
                         <div class = "test-item-info">
-                            <img src = "images/test-1.jpg" alt = "testimonial">
+                            <img src = "{% static 'images/jamee.jpg'%}" alt = "testimonial">
                             <div>
-                                <h3>Kevin Wilson</h3>
-                                <p class = "text">Trip to Brazil</p>
+                                <h3>Ahnaf Tahmid Jamee</h3>
+                                <p class = "text">Trip to Cox's Bazar</p>
                             </div>
                         </div>
                     </div>
 
                     <div class = "test-item">
-                        <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed ut dolores tenetur harum deserunt. Maxime tenetur consectetur recusandae nobis fugit iusto natus quibusdam nulla!</p>
+                        <p class = "text">The team is very professional and answer very quickly to our questions and try to adapt the program to our desires.
+They are very responsable.</p>
                         <div class = "test-item-info">
-                            <img src = "images/test-2.jpg" alt = "testimonial">
+                            <img src = "{% static 'images/sajib.jpg'%}" alt = "testimonial">
                             <div>
-                                <h3>Ben Davis</h3>
-                                <p class = "text">Trip to Maldives</p>
+                                <h3>Ismail Iqbal Sajib</h3>
+                                <p class = "text">Trip to Sylhet</p>
                             </div>
                         </div>
                     </div>
 
                     <div class = "test-item">
-                        <p class = "text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem sapiente amet expedita quae autem deleniti quo magni numquam facilis soluta dicta, praesentium ipsum, quos optio sed quibusdam! Reprehenderit recusandae provident id nemo!</p>
+                        <p class = "text">When I could not pay online because of a glitch on my credit card, the person who helped me was very patient and understanding. Thank you.</p>
                         <div class = "test-item-info">
-                            <img src = "images/test-3.jpg" alt = "testimonial">
+                            <img src = "{% static 'images/raihan.jpg'%}" alt = "testimonial">
                             <div>
-                                <h3>Jaura Jones</h3>
-                                <p class = "text">Trip to Thailand</p>
+                                <h3>MD Raihan Rabby</h3>
+                                <p class = "text">Trip to Sundorban</p>
                             </div>
                         </div>
                     </div>
@@ -255,7 +148,8 @@
         <section id = "video">
             <div class = "video-wrapper flex">
                 <video loop>
-                    <source src = "videos/video-section.mp4" type = "video/mp4">
+
+                    <source src = "{%static 'videos/bangladesh.mp4'%}" type = "video/mp4">
                 </video>
                 <button type = "button" id = "play-btn">
                     <i class = "fas fa-play"></i>
@@ -264,71 +158,9 @@
         </section>
         <!-- end of video section -->
 
-        <!-- footer -->
-        <footer class = "py-4">
-            <div class = "container footer-row">
-                <div class = "footer-item">
-                    <a href = "index.html" class = "site-brand">
-                        Trip<span>Boss</span>
-                    </a>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet voluptates maiores nam vitae iusto. Placeat rem sint voluptas natus exercitationem autem quod neque, odit laudantium reiciendis ipsa suscipit veritatis voluptate.</p>
-                </div>
 
-                <div class = "footer-item">
-                    <h2>Follow us on: </h2>
-                    <ul class = "social-links">
-                        <li>
-                            <a href = "#">
-                                <i class = "fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href = "#">
-                                <i class = "fab fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href = "#">
-                                <i class = "fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href = "#">
-                                <i class = "fab fa-pinterest"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href = "#">
-                                <i class = "fab fa-google-plus"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class = "footer-item">
-                    <h2>Popular Places:</h2>
-                    <ul>
-                        <li><a href = "#">Thailand</a></li>
-                        <li><a href = "#">Australia</a></li>
-                        <li><a href = "#">Maldives</a></li>
-                        <li><a href = "#">Switzerland</a></li>
-                        <li><a href = "#">Germany</a></li>
-                    </ul>
-                </div>
-
-                <div class = "subscribe-form footer-item">
-                    <h2>Subscribe for Newsletter!</h2>
-                    <form class = "flex">
-                        <input type = "email" placeholder="Enter Email" class = "form-control">
-                        <input type = "submit" class = "btn" value = "Subscribe">
-                    </form>
-                </div>
-            </div>
-        </footer>
-        <!-- end of footer -->
-
-        <!-- js -->
-        <script src = "js/script.js"></script>
+        <script src = "{% static 'js/script.js'%}"></script>
         <script>
             // play/pause video
             let video = document.querySelector('.video-wrapper video');
@@ -340,5 +172,8 @@
                 }
             });
         </script>
-    </body>
-</html>
+{%endblock content%}
+
+
+
+
