@@ -1,80 +1,66 @@
 {% extends "base.html"%}
+{%load static%}
 
 
 {%block content%}
-
         <!-- header -->
-        <header class = "flex header-sm">
-            <div class = "container">
-                <div class = "header-title">
-                    <h1>Gallery</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
-                </div>
-            </div>
-        </header>
-        <!-- header -->
+<header class = "flex header-sm">
+    <div class = "container">
+        <div class = "header-title">
+            <h1>Gallery</h1>
+            <p>Most exclusive places photo in Bangladesh.</p>
+        </div>
+    </div>
+</header>
+<section id = "popular" class = "py-4">
+    <div class = "title-wrap">
+        <span class = "sm-title">know about some coo destination</span>
+        <h2 class = "lg-title">Popular Places</h2>
+    </div>
 
-        <!-- gallery section -->
-        <div id = "gallery" class = "py-4">
-            <div class = "container">
-                <div class = "gallery-row">
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-1.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-2.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-3.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-4.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-5.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-6.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-7.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-8.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                    <div class = "gallery-item shadow">
-                        <img src = "images/gallery-9.jpg" alt = "gallery img">
-                        <span class = "zoom-icon">
-                            <i class = "fas fa-search-plus"></i>
-                        </span>
-                    </div>
-                </div>
+    <div class = "popular-row">
+        {%for pic in p_photos%}
+        <div class = "popular-item shadow">
+            <img src = "{{pic.img.url}}" alt = "">
+            <div>
+                <span>{{pic.name}}, Bangladesh</span>
+                <ul class = "rating flex">
+                    <li><i class = "fas fa-star"></i></li>
+                    <li><i class = "fas fa-star"></i></li>
+                    <li><i class = "fas fa-star"></i></li>
+                    <li><i class = "fas fa-star"></i></li>
+                    <li><i class = "fas fa-star-half-alt"></i></li>
+                    <li>&nbsp;400 reviews</li>
+                </ul>
+                <p class = "text">{{pic.des}}</p>
             </div>
         </div>
+        {%endfor%}
+
+    </div>
+</section>
+<!-- header -->
+
+
+
+<!-- gallery section -->
+        <div id = "gallery" class = "py-4">
+            <div class = "container">
+
+                <div class = "gallery-row">
+                {%for i in g_photos%}
+                    <div class = "gallery-item shadow">
+                        <img src = "{{i.img.url}}" alt = "gallery img">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                    </div>
+                {%endfor%}
+
+                </div>
+             </div>
+        </div>
+
         <!-- end of gallery section -->
 
         <!-- img modal -->
@@ -92,216 +78,9 @@
                 <img src = "images/gallery-1.jpg">
             </div>
         </div>
-        <!-- end of img modal -->
+<!-- end of img modal -->
 
-        <!-- popular places section -->
-        <section id = "popular" class = "py-4">
-            <div class = "title-wrap">
-                <span class = "sm-title">know about some coo destination</span>
-                <h2 class = "lg-title">Popular Places</h2>
-            </div>
-
-            <div class = "popular-row">
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-1.jpg" alt = "">
-                    <div>
-                        <span>Eiffel Tower, Paris</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-2.jpg" alt = "">
-                    <div>
-                        <span>Machu Picchu, Peru</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-3.jpg" alt = "">
-                    <div>
-                        <span>Acropolis, Athens</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-4.jpg" alt = "">
-                    <div>
-                        <span>Bali, Indonesia</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-5.jpg" alt = "">
-                    <div>
-                        <span>Dubai, United Arab Emirates</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-6.jpg" alt = "">
-                    <div>
-                        <span>Bhutan</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-7.jpg" alt = "">
-                    <div>
-                        <span>Havana, Cuba</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-
-                <div class = "popular-item shadow">
-                    <img src = "images/popular-8.jpg" alt = "">
-                    <div>
-                        <span>Moskva, Russia</span>
-                        <ul class = "rating flex">
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star"></i></li>
-                            <li><i class = "fas fa-star-half-alt"></i></li>
-                            <li>&nbsp;400 reviews</li>
-                        </ul>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end of popular places section -->
-
-{%endblock content%}
-
-
-<!--        &lt;!&ndash; footer &ndash;&gt;-->
-<!--        <footer class = "py-4">-->
-<!--            <div class = "container footer-row">-->
-<!--                <div class = "footer-item">-->
-<!--                    <a href = "index.html" class = "site-brand">-->
-<!--                        Trip<span>Boss</span>-->
-<!--                    </a>-->
-<!--                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet voluptates maiores nam vitae iusto. Placeat rem sint voluptas natus exercitationem autem quod neque, odit laudantium reiciendis ipsa suscipit veritatis voluptate.</p>-->
-<!--                </div>-->
-
-<!--                <div class = "footer-item">-->
-<!--                    <h2>Follow us on: </h2>-->
-<!--                    <ul class = "social-links">-->
-<!--                        <li>-->
-<!--                            <a href = "#">-->
-<!--                                <i class = "fab fa-facebook-f"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href = "#">-->
-<!--                                <i class = "fab fa-instagram"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href = "#">-->
-<!--                                <i class = "fab fa-twitter"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href = "#">-->
-<!--                                <i class = "fab fa-pinterest"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href = "#">-->
-<!--                                <i class = "fab fa-google-plus"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-<!--                <div class = "footer-item">-->
-<!--                    <h2>Popular Places:</h2>-->
-<!--                    <ul>-->
-<!--                        <li><a href = "#">Thailand</a></li>-->
-<!--                        <li><a href = "#">Australia</a></li>-->
-<!--                        <li><a href = "#">Maldives</a></li>-->
-<!--                        <li><a href = "#">Switzerland</a></li>-->
-<!--                        <li><a href = "#">Germany</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-<!--                <div class = "subscribe-form footer-item">-->
-<!--                    <h2>Subscribe for Newsletter!</h2>-->
-<!--                    <form class = "flex">-->
-<!--                        <input type = "email" placeholder="Enter Email" class = "form-control">-->
-<!--                        <input type = "submit" class = "btn" value = "Subscribe">-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </footer>-->
-<!--        &lt;!&ndash; end of footer &ndash;&gt;-->
-
-<!--        &lt;!&ndash; js &ndash;&gt;-->
-        <script src = "js/script.js"></script>
-        <script>
+<script>
             // image modal
             const allGalleryItem = document.querySelectorAll('.gallery-item');
             const imgModalDiv = document.getElementById('img-modal-box');
@@ -320,6 +99,7 @@
             });
 
             // next click
+
             nextBtn.addEventListener('click', () => {
                 imgIndex++;
                 if(imgIndex > allGalleryItem.length){
@@ -345,5 +125,15 @@
                 imgModalDiv.style.display = "none";
             })
         </script>
+<!-- popular places section -->
+<!-- end of popular places section -->
+
+
+
+
+<script src = "js/script.js"></script>
+{%endblock content%}
+<!--        &lt;!&ndash; js &ndash;&gt;-->
+
 <!--    </body>-->
 <!--</html>-->

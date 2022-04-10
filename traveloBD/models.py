@@ -22,5 +22,20 @@ class Tour_places(models.Model):
         return self.name
 
 
+class Gallery_photos(models.Model):
+    name=models.CharField(max_length=100)
+
+    img = models.ImageField(null=True, blank=True, upload_to="img/%y")
+    def __str__(self):
+        return self.name
+
+class PopulerPlaces(models.Model):
+    name= models.CharField(null=False,max_length=120)
+    des=models.TextField(null=False,blank=False,default='give the describtion')
+    img=models.ImageField(null=True,blank=True,upload_to="img/%y")
+
+    def __str__(self):
+        return self.name
+
 
 

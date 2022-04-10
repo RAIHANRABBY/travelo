@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .models import Dist_info,Tour_places
+from .models import Dist_info,Tour_places,Gallery_photos,PopulerPlaces
 
 from .forms import CreateUserForm
 # Create your views here.
@@ -61,7 +61,13 @@ def contact_view(request):
     return render(request,'siteinfo/contact.html',{'contact':contact_view})
 
 def gallery_view(request):
-    return render(request,'siteinfo/gallery.html',{'gallery':gallery_view})
+    photos=Gallery_photos.objects.all()
+    populer_photo_details=PopulerPlaces.objects.all()
+    context={
+        'g_photos': photos,
+        'p_photos':populer_photo_details
+    }
+    return render(request,'siteinfo/gallery.html',context)
 
 
 
