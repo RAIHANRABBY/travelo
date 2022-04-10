@@ -6,7 +6,8 @@ from .views import registration_view,\
     home,\
     about_view,\
     contact_view,gallery_view,\
-    places_info,spots_view
+    places_info,spots_view,bus_ticket,\
+    train_ticket,flight_ticket
 
 urlpatterns = [
     path('register/',registration_view,name="register"),
@@ -20,6 +21,9 @@ urlpatterns = [
     path('gallery/',gallery_view,name='gallery'),
     path('places/<int:id>/',places_info),
     path('places/spots/<int:id>/',spots_view),
+    path('bus/',bus_ticket),
+    path('train/',train_ticket),
+    path('flight/',flight_ticket),
 
 
 ]

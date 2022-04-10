@@ -32,7 +32,7 @@ def login_view(request):
         user=authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
-            return redirect('home')
+            return redirect('home_page')
         else:
             messages.info(request,'username OR password in incorrect')
             return render(request,'login.html')
@@ -44,7 +44,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    messages.warning(request,'your logged out')
+    messages.warning(request,'Logged out')
     return redirect('login')
 
 
@@ -95,3 +95,26 @@ def spots_view(request,id):
     }
     return render(request,'places/spots.html',context)
 
+
+def bus_ticket(request):
+    obj=Tour_places.objects.all()
+    context={
+        'obj':obj
+    }
+    return render(request,'ticket/bus.html',context)
+
+
+def train_ticket(request):
+    obj = Tour_places.objects.all()
+    context = {
+        'obj': obj
+    }
+    return render(request,'ticket/train.html',context)
+
+
+def flight_ticket(request):
+    obj = Tour_places.objects.all()
+    context = {
+        'obj': obj
+    }
+    return render(request,'ticket/flight.html',context)

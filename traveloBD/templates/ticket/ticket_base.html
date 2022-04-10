@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+{%load static%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+
+
+
+
+-->
+    	<title>TraveloBD</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{%static 'ticket/css/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{%static 'ticket/css/bootstrap-theme.min.css'%}">
+        <link rel="stylesheet" href="{%static 'ticket/css/fontAwesome.css'%}">
+        <link rel="stylesheet" href="{%static 'ticket/css/hero-slider.css'%}">
+        <link rel="stylesheet" href="{%static 'ticket/css/owl-carousel.css'%}">
+        <link rel="stylesheet" href="{%static 'ticket/css/datepicker.css'%}">
+        <link rel="stylesheet" href="{%static 'ticket/css/tooplate-style.css'%}">
+
+        <link rel = "stylesheet" href = "{%static 'css/responsive.css'%}">
+        <link rel = "stylesheet" href = "{% static 'css/style.css'%}">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <script src="{%static 'ticket/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'%}"></script>
+    </head>
+    <body>
+     <nav class = "navbar">
+            <div class = "container flex">
+                <a href = "{%url 'home_page'%}" class = "site-brand">
+                    Travelo<span>BD</span>
+                </a>
+
+                <button type = "button" id = "navbar-show-btn" class = "flex">
+                    <i class = "fas fa-bars"></i>
+                </button>
+                <div id = "navbar-collapse">
+                    <button type = "button" id = "navbar-close-btn" class = "flex">
+                        <i class = "fas fa-times"></i>
+                    </button>
+                    <ul class = "navbar-nav">
+                        <li class = "nav-item">
+                            <a href = "{%url 'home_page'%}" class = "nav-link">Home</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "{%url 'gallery'%}" class = "nav-link">Gallery</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "{%url 'blog'%}"class = "nav-link">Blog</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "{%url 'about'%}" class = "nav-link">About</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "{%url 'contact'%}" class = "nav-link">Contact</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "{%url 'login'%}" class = "nav-link">Login</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "{%url 'register'%}" class = "nav-link">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end of navbar  -->
+
+
+{%block ticket%}
+
+    <h1>Failed ticket page.</h1>
+{%endblock ticket%}
+
+    </body>
+
+
+ <footer class = "py-4">
+            <div class = "container footer-row">
+                <div class = "footer-item">
+                    <a href = "{%url 'home_page'%}" class = "site-brand">
+                        Travelo<span>BD</span>
+                    </a>
+                    <p class = "text">Welcome to TravelSites.com: the only travel site you’ll need when it's time to travel! Find the perfect destinations, cheapest booking options, last-minute deals, cheap flights, and the best hotel sites. Enjoy travel blogs and the best travel guides. Find the cheapest rental cars and the best local restaurants.</p>
+                </div>
+
+                <div class = "footer-item">
+                    <h2>Follow us on: </h2>
+                    <ul class = "social-links">
+                        <li>
+                            <a href = "https://www.facebook.com/0raihanrabby">
+                                <i class = "fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "https://www.instagram.com/md_raihan_rabby/">
+                                <i class = "fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "https://www.pinterest.com/fazla35436/">
+                                <i class = "fab fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "footer-item">
+                    <h2>Popular Places:</h2>
+                    <ul>
+                        <li><a href = "#">Cox's Bazar</a></li>
+                        <li><a href = "#">Sajek</a></li>
+                        <li><a href = "#">Sundarban</a></li>
+                        <li><a href = "#">Sylhet</a></li>
+                        <li><a href = "#">Bandarban</a></li>
+                    </ul>
+                </div>
+
+                <div class = "subscribe-form footer-item">
+                    <h2>Subscribe for Newsletter!</h2>
+                    <form class = "flex">
+                        <input type = "email" placeholder="Enter Email" class = "form-control">
+                        <input type = "submit" class = "btn" value = "Subscribe">
+                    </form>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{%static 'ticket/js/vendor/jquery-1.11.2.min.js'%}"><\/script>')</script>
+
+    <script src="{%static 'ticket/js/vendor/bootstrap.min.js'%}"></script>
+
+    <script src="{%static 'ticket/js/datepicker.js'%}"></script>
+    <script src="{%static 'ticket/js/plugins.js'%}"></script>
+    <script src="{%static 'ticket/js/main.js'%}"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="{%static 'ticket/text/javascript'%}">
+    $(document).ready(function() {
+
+
+
+        // navigation click actions
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>
